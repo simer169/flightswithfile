@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-module.exports = function (flights) {
+module.exports = function (flights,db) {
 	var express = require('express');
 	var routes = require('./routes')(flights);
 	var path = require('path');	
@@ -32,6 +32,7 @@ module.exports = function (flights) {
 	app.get('/flight/:number', routes.flight);
 	app.put('/flight/:number/arrived', routes.arrived);
 	app.get('/list', routes.list);
+	app.get('/arrivals', routes.arrivals);
 
 	return app;
 }
